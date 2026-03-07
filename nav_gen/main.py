@@ -40,6 +40,7 @@ def read_args():
     parser.add_argument('--ram_model', type=str, default=project_path + '/data/models/ram_plus_swin_large_14m.pth', help="path for ram model")
     parser.add_argument('--ram_logs', type=str, default=nav_gen_path + '/logs/step_task_logs.txt', help="path to save logs")
     parser.add_argument('--split_save_path', type=str, default=nav_gen_path + '/task/trail_list.txt', help="path to save the split trajectory")
+    
 
 
     args = parser.parse_args()

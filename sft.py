@@ -41,21 +41,25 @@ def train_one_sft_epoch(
     else:
         writer_step = None
     
-    for step, (config, step_configs) in enumerate(dataloader):
+    # CHANGE: Changed unpacking to 'batch' to handle the list returned by collate_fn
+    for step, batch in enumerate(dataloader):
         logger.info(f"****** statrt training in step: {step} ******")
-        logger.info(config)
+        
+        # CHANGE: Added an inner loop to process each sample inside the batch
+        for config, step_configs in batch:
+            logger.info(config)
 
-        # SFT for LH task
-        agent = SFTAgent(args, config, nav_model)
-        lh_loss = agent.train(criterion)
+            # SFT for LH task
+            agent = SFTAgent(args, config, nav_model)
+            lh_loss = agent.train(criterion)
 
-        # #training for step task
-        st_loss = []
-        for step_config in step_configs:
-            logger.info(step_config)
-            agent = SFTAgent(args, step_config, nav_model)
-            st = agent.train(criterion)
-            st_loss.append(st)
+            # #training for step task
+            st_loss = []
+            for step_config in step_configs:
+                logger.info(step_config)
+                agent = SFTAgent(args, step_config, nav_model)
+                st = agent.train(criterion)
+                st_loss.append(st)
 
         if (step + 1) % args.gradient_accumulation_step == 0:
             torch.nn.utils.clip_grad_norm_(nav_model.model.parameters(), 40.)
@@ -90,7 +94,6 @@ def train_one_sft_epoch(
 
     return sum(lh_losses)/len(lh_losses) if len(lh_losses) > 0 else float("inf"), sum(st_losses)/len(st_losses) if len(st_losses) > 0 else float("inf")
 
-
 def main():
     args, global_cfg, logger, device_id = read_args()
     random_seed(args.seed)
@@ -99,12 +102,14 @@ def main():
         writer_epoch = SummaryWriter(log_dir=args.tensorboard_path, filename_suffix='epoch')
     else:
         writer_epoch = None
-    
+
+    # change the custom collate
     def custom_collate_fn(batch):
         if args.batch_size == 1:
             return batch[0]
         else:
             return batch
+        # return batch
 
     # nav_model = RandomAgent()
     nav_model = ContinuousNav(args, global_cfg, logger, device_id)
@@ -112,8 +117,9 @@ def main():
     criterion = nn.CrossEntropyLoss(ignore_index=args.ignoreid, reduction='sum')
 
     train_dataset = SFTDataset(args, mode='train')
-    val_dataset = SFTDataset(args, mode='val')
-    test_dataset = SFTDataset(args, mode='test')
+    test_dataset = SFTDataset(args, mode='valid')
+    val_dataset = SFTDataset(args, mode='test')
+    
     if args.split_by_scene:
         train_dataset, _, _ = create_split_datasets([train_dataset, val_dataset, test_dataset], args)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)

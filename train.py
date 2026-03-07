@@ -98,7 +98,8 @@ def train_one_epoch(
         lr_scheduler,
         criterion,
         nav_model,
-        logger
+        logger,
+        resume_from_step
         ):
     
     nav_model.model.train()
@@ -119,6 +120,12 @@ def train_one_epoch(
         writer_step = None
     
     for step, (config, step_configs) in enumerate(dataloader):
+
+        if step < args.resume_from_step:
+            print(f'SKIPPING STEP................................................................................................................. {step}')
+            pbar.update() # <--- This "pushes" the bar forward without doing the work
+            continue
+
         logger.info(f"****** statrt training in step: {step} ******")
         logger.info(config)
 
@@ -159,6 +166,14 @@ def train_one_epoch(
             result['gt_path'],
             result['navigation_errors']
             )
+        
+        # added logging
+        current_step_metrics = metrics['result'].compute()
+        logger.info(f"[Step {step}] SR: {current_step_metrics['success_rate']:.4f} | "
+                    f"SPL: {current_step_metrics['spl']:.4f} | "
+                    f"NE: {current_step_metrics['navigation_error']:.4f} | "
+                    f"ISR: {current_step_metrics['independent_success_rate']:.4f} | "
+                    f"CSR: {current_step_metrics['conditional_success_rate']:.4f}")
 
         # #training for step task
         st_loss = []
@@ -183,7 +198,10 @@ def train_one_epoch(
         pbar.update()
 
         lh_losses.append(lh_loss)
-        st_losses.append(sum(st_loss)/len(st_loss) if len(st_loss) > 0 else [])
+        # change [] tpo 0.0 because of no st
+        # st_losses.append(sum(st_loss)/len(st_loss) if len(st_loss) > 0 else [])
+        st_losses.append(sum(st_loss)/len(st_loss) if len(st_loss) > 0 else 0.0)
+
 
         if writer_step:
             writer_step.add_scalars('Training loss', {
@@ -223,6 +241,7 @@ def validate_one_epoch(
     )
     # test for LH-VLN task and step task 
     for step, (config, step_configs) in enumerate(dataloader):
+        logger.info(f"--- STARTING LH TASK: {config['Task instruction'][:70]}... ---")
         logger.info(config)
         # test for LH-task
         agent = HabitatAgent(args, config, nav_model)
@@ -261,7 +280,8 @@ def validate_one_epoch(
             result['navigation_errors']
                 )
 
-        for step_config in step_configs:
+        for i, step_config in enumerate(step_configs):
+            logger.info(f"   >>> Running ST Sub-Task {i}: {step_config['Task instruction'][:70]}...")
             logger.info(step_config)
             agent = HabitatAgent(args, step_config, nav_model)
             result = agent.validate(step_task=True)
@@ -315,28 +335,45 @@ def main():
     CSR = 0.
     best_checkpoint = args.best_checkpoint if args.mode == 'test' else None 
 
-    if args.episode_data:
-        train_dataset = EpisodeDataset(args, mode='train')
-        val_dataset = EpisodeDataset(args, mode='valid')
-        test_dataset = EpisodeDataset(args, mode='test') 
-        # For unseen Test set
-        if args.split_by_scene:
-            train_dataset, val_dataset, test_dataset = create_split_datasets([train_dataset, val_dataset, test_dataset], args)    
+    if args.mode == 'test':
+        if args.episode_data:
+            train_dataset = EpisodeDataset(args, mode='train')
+            val_dataset = EpisodeDataset(args, mode='valid')
+            test_dataset = EpisodeDataset(args, mode='test') 
+
+        else:
+            train_dataset = TaskDataset(args, mode='train')
+            val_dataset = TaskDataset(args, mode='valid')
+            test_dataset = TaskDataset(args, mode='test')
+        print(f"DEBUG: Total tasks in test_dataset: {len(test_dataset.tasks)}")
+        test_dataloader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=1, collate_fn=custom_collate_fn)
+
     else:
-        train_dataset = TaskDataset(args, mode='train')
-        val_dataset = TaskDataset(args, mode='valid')
-        test_dataset = TaskDataset(args, mode='test')
-        # For unseen Test set
-        if args.split_by_scene:
-            train_dataset, val_dataset, test_dataset = create_split_datasets([train_dataset, val_dataset, test_dataset], args)
-    train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
-    val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
-    test_dataloader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
+        if args.episode_data:
+            train_dataset = EpisodeDataset(args, mode='train')
+            val_dataset = EpisodeDataset(args, mode='valid')
+            test_dataset = EpisodeDataset(args, mode='test') 
+            
+            # For unseen Test set
+            # if args.split_by_scene:
+            #     train_dataset, val_dataset, test_dataset = create_split_datasets([train_dataset, val_dataset, test_dataset], args)    
+        else:
+            train_dataset = TaskDataset(args, mode='train')
+            val_dataset = TaskDataset(args, mode='valid')
+            test_dataset = TaskDataset(args, mode='test')
+            # For unseen Test set
+            if args.split_by_scene:
+                train_dataset, val_dataset, test_dataset = create_split_datasets([train_dataset, val_dataset, test_dataset], args)
+
+        train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
+        val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
+        test_dataloader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, collate_fn=custom_collate_fn)
 
     if args.mode == 'train':
         # metrics for diffrent tasks
         train_metrics = {
             'result': NavigationMetrics(),
+            '1': NavigationMetrics(), #added this for rxr dataset
             '2': NavigationMetrics(),
             '3': NavigationMetrics(),
             '4': NavigationMetrics(),
@@ -345,6 +382,7 @@ def main():
         }
         val_metrics = {
             'result': NavigationMetrics(),
+            '1': NavigationMetrics(), #added this for rxr dataset
             '2': NavigationMetrics(),
             '3': NavigationMetrics(),
             '4': NavigationMetrics(),
@@ -364,6 +402,7 @@ def main():
                 criterion, 
                 nav_model,
                 logger,
+                args.resume_from_step
                 )
             
             logger.info(f"###### Epoch: {epoch} ######")
@@ -416,7 +455,12 @@ def main():
                 }, epoch)
 
     if args.load_checkpoint:
+        print(f'Loading checkpoint YANG INIIIIIIIIIIIIIIIIIIIIII from {best_checkpoint}')
         checkpoint = torch.load(best_checkpoint)
+        if best_checkpoint is None:
+            logger.error("No best_checkpoint found! Skipping loading logic.")
+            # Either set a default or exit
+            best_checkpoint = args.resume_from_checkpoint
         model_state_dict = nav_model.model.state_dict()
         # nav_model.model.load_state_dict(checkpoint['model_state_dict'])
         state_disk = {k.replace('module.', ''): v for k, v in checkpoint['model_state_dict'].items()}
@@ -433,6 +477,7 @@ def main():
 
     test_metrics = {
         'result': NavigationMetrics(),
+        '1': NavigationMetrics(), #added this for rxr dataset
         '2': NavigationMetrics(),
         '3': NavigationMetrics(),
         '4': NavigationMetrics(),

@@ -14,7 +14,7 @@ def read_json_gz(file_path):
 
 class TaskDataset(Dataset):
     def __init__(self, args, mode):
-        assert mode in ['train', 'test', 'valid']
+        assert mode in ['train', 'valid', 'test']
         self.mode = mode
 
         self.task_data = args.task_data
@@ -126,7 +126,10 @@ class EpisodeDataset(Dataset):
                     if "Move_to" in task:
                         obj_id  = task[9:-2].split("_")
                         obj.append(obj_id[0])
-                        region_id.append(obj_id[1])
+                        if len(obj_id) > 1:
+                            region_id.append(obj_id[1])
+                        else:
+                            region_id.append("0") # Default region if not specified
                 rooms = []
                 for room in data[i]["Object"]:
                     rooms.append(room[1].split(': ')[1])
@@ -169,7 +172,7 @@ class EpisodeDataset(Dataset):
 
 class SFTDataset(Dataset):
     def __init__(self, args, mode, max_len=None):
-        assert mode in ['train', 'test', 'valid']
+        assert mode in ['train', 'valid', 'test']
         self.mode = mode
         
         self.task_data = args.task_data

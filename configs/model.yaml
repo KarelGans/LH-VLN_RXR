@@ -1,48 +1,101 @@
-Path:
-  scene: "LH-VLN/data/hm3d/"
-  scene_dataset: "LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json"
+# Path:
+#   scene: "data/hm3d/"
+#   scene_dataset: "data/hm3d/hm3d_annotated_basis.scene_dataset_config.json"
   
-  episode_data: "LH-VLN/data/episode_task"
-  task_data: "LH-VLN/data/task"
-  step_task_data: "LH-VLN/data/step_task"
-  train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
-  val_batch: ['/batch_6']
-  test_batch: ['/batch_7', '/batch_8']
-  split_by_scene: True
+#   episode_data: "data/episode_task"
+#   task_data: "data/task"
+#   step_task_data: "data/step_task"
+#   train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+#   val_batch: ['/batch_6']
+#   # test_batch: ['/batch_7', '/batch_8']
+#   test_batch: ['/mini_test']
 
-  save_checkpoints: "LH-VLN/save_checkpoints"
+#   split_by_scene: True
 
-  tensorboard_path: "LH-VLN/run"
-  output_dir: "LH-VLN/output"
+#   save_checkpoints: "save_checkpoints"
 
-Train:
-  mode: 'test'
-  tensorboard: False
-  best_checkpoint: null
-  load_checkpoint: False
-  save_ckpt_per_epochs: 10
+#   tensorboard_path: "run"
+#   output_dir: "output"
 
-  batch_size: 1
-  num_epochs: 20
-  ignoreid: -100
-  max_step: 500
-  gradient_accumulation_step: 2
-  num_warmup_steps: 1000
+# Train:
+#   mode: 'test'
+#   tensorboard: False
+#   best_checkpoint: null
+#   load_checkpoint: True
+#   save_ckpt_per_epochs: 8
 
-  success_dis: 1
+#   batch_size: 1
+#   num_epochs: 1
+#   ignoreid: -100
+#   max_step: 10
+#   gradient_accumulation_step: 2
+#   num_warmup_steps: 1000
 
-Model:
-  model_name: "LLM Model"
-  pretrained_clip: "LH-VLN/data/models/clip-vit-base-patch16"
-  bert_model: "LH-VLN/data/models/bert-large-uncased"
-  pretrained_model_name_or_path: "path to your pretrained LLM(Llama/Qwen base series)"
-  resume_from_checkpoint: null  # if you have a checkpoint and you want to load model from that state, here is the path you need to add
-  from_scratch: True  # if your model is not vicuna 7b or llama 8b, set it to True
-  feat_dropout: 0.4
-  temperature: 1.0
-  image_feat_size: 1024
-  angle_feat_size: 4
-  enc_full_graph: True
-  num_pano_layers: 2
-  max_memory: 20  # based on your vram
+#   success_dis: 1
 
+# Model:
+#   model_name: "LLM Model"
+#   pretrained_clip: "data/models/clip-vit-base-patch16"
+#   bert_model: "data/models/bert-large-uncased"
+#   pretrained_model_name_or_path: 'lmsys/vicuna-7b-v1.5'
+#   resume_from_checkpoint: 'save_checkpoints/epoch_0step_158.pth'   # if you have a checkpoint and you want to load model from that state, here is the path you need to add
+#   from_scratch: False  # if your model is not vicuna 7b or llama 8b, set it to True
+#   feat_dropout: 0.4
+#   temperature: 1.0
+#   image_feat_size: 1024
+#   angle_feat_size: 4
+#   enc_full_graph: True
+#   num_pano_layers: 2
+#   max_memory: 20  # based on your vram
+
+
+# Path:
+#   scene: "data/hm3d/"
+#   scene_dataset: "data/hm3d/hm3d_annotated_basis.scene_dataset_config.json"  
+#   episode_data: "data/episode_task"
+#   task_data: "data/task"
+#   step_task_data: "data/step_task"
+#   train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+#   val_batch: ['/batch_6']
+#   # test_batch: ['/batch_7', '/batch_8']
+#   test_batch: [ '/mini_test']
+
+#   split_by_scene: True
+
+#   save_checkpoints: "save_checkpoints"
+
+#   tensorboard_path: "run"
+#   output_dir: "output"
+
+# Train:
+#   mode: 'test'
+#   tensorboard: True
+#   best_checkpoint: 'save_checkpoints/epoch_0step_150.pth' 
+#   load_checkpoint: True
+#   save_ckpt_per_epochs: 8
+
+#   batch_size: 1
+#   num_epochs: 1
+#   ignoreid: -100
+#   max_step: 10
+#   gradient_accumulation_step: 2
+#   num_warmup_steps: 1
+
+#   success_dis: 1
+
+# Model:
+#   model_name: "LLM Model"
+#   pretrained_clip: "data/models/clip-vit-base-patch16"
+#   bert_model: "data/models/bert-large-uncased"
+#   # pretrained_model_name_or_path: 'lmsys/vicuna-7b-v1.5'
+#   # pretrained_model_name_or_path: 'meta-llama/Llama-3.2-3B-Instruct'
+#   pretrained_model_name_or_path: 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'
+#   resume_from_checkpoint: 'save_checkpoints/epoch_0step_150.pth'  # if you have a checkpoint and you want to load model from that state, here is the path you need to add
+#   from_scratch: True  # if your model is not vicuna 7b or llama 8b, set it to True
+#   feat_dropout: 0.4
+#   temperature: 1.0
+#   image_feat_size: 1024
+#   angle_feat_size: 4
+#   enc_full_graph: True
+#   num_pano_layers: 2
+#   max_memory: 10 # based on your vram

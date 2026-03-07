@@ -79,6 +79,7 @@ def read_args():
     parser.add_argument('--output_dir', type=str, default=root_path + '/output', help="output logs and ckpts")
     parser.add_argument("--save_ckpt_per_epochs", type=int, default=10)
     parser.add_argument("--save_latest_states", action='store_true')
+    parser.add_argument('--resume_from_step', type=int, default=0, help="The step number to skip to within the epoch")
 
     # training
     parser.add_argument('--mode', type=str, default="test", choices=["train", "test"])
@@ -121,14 +122,17 @@ def read_args():
     args.output_dir = global_cfg.Path.output_dir
 
     # global config for training
+    args.dataset_type = global_cfg.Train.dataset_type
     args.mode = global_cfg.Train.mode
     args.tensorboard = global_cfg.Train.tensorboard
     args.best_checkpoint = global_cfg.Train.best_checkpoint
     args.load_checkpoint = global_cfg.Train.load_checkpoint
     args.save_ckpt_per_epochs = global_cfg.Train.save_ckpt_per_epochs
+    args.resume_from_step = global_cfg.Train.resume_from_step
 
     args.batch_size = global_cfg.Train.batch_size
     args.num_epochs = global_cfg.Train.num_epochs
+    # args.num_epochs = 300
     args.ignoreid = global_cfg.Train.ignoreid
     args.max_step = global_cfg.Train.max_step
     args.gradient_accumulation_step = global_cfg.Train.gradient_accumulation_step

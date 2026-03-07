@@ -109,8 +109,11 @@ class SceneSimulator:
         self.info = self.get_info()  # get the info of the current state
         if self.info['geo dis'] < self.args.success_dis:
             self.oracle_successes[self.stage] = True
+        # print(f"DEBUG STEP IZIN {self.step}")
 
-        if action == "stop":    
+        if action == "stop" and self.step != 1 :    
+            print("RUNNING DEBUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+
             if self.info['geo dis'] < self.args.success_dis:  # if the agent is close to the target object
                 self.successes[self.stage] = True
                 print("\n***** nav to %s success! *****\n" % obj_target)
@@ -221,7 +224,7 @@ class SceneSimulator:
                             f"\n"
                         )
 
-    def get_coord(self, obj_target):
+    def get_coord(self, obj_target, dataset="not_rxr"):
         """
         Return the coord of the target object
         Args:
@@ -229,22 +232,41 @@ class SceneSimulator:
         Returns:
             coord_list: the list of the coordinates of the target object
         """
-        scene = self.sim.semantic_scene
-        coord_list = []
-        index = self.target.index(obj_target)
-        region_id = self.region[index]
-        for region in scene.regions:
-            if region.id[1:] != region_id:
-                continue
-            for obj in region.objects:
-                if obj.category.name() == obj_target:
-                    coord_list.append(obj.aabb.center)
-        
-        if coord_list == []:
-            print("wrong target")
-            return 0
-        else:
-            return coord_list
+        # Check if we are using the RXR dataset type which provides explicit coordinates
+        if hasattr(self.args, 'dataset_type') and self.args.dataset_type == 'rxr':
+            # st_task uses 'target_pos'
+            if 'target_pos' in self.config:
+                return [np.array(self.config['target_pos'])]
+            # lh_task uses 'goal_pos'
+            elif 'goal_pos' in self.config:
+                pos = self.config['goal_pos']
+                # Handle both single coordinate list and list of lists for multi-stage tasks
+                if pos and (isinstance(pos[0], list) or isinstance(pos[0], np.ndarray)):
+                    if self.stage < len(pos):
+                        return [np.array(pos[self.stage])]
+                    return [np.array(pos[-1])] # Fallback to last one
+                return [np.array(pos)]
+            else:
+                print("RXR dataset type selected, but no 'target_pos' or 'goal_pos' found in config!")
+                return 0
+
+        else: # Original logic for semantic lookup
+            scene = self.sim.semantic_scene
+            coord_list = []
+            index = self.target.index(obj_target)
+            region_id = self.region[index]
+            for region in scene.regions:
+                if region.id[1:] != region_id:
+                    continue
+                for obj in region.objects:
+                    if obj.category.name() == obj_target:
+                        coord_list.append(obj.aabb.center)
+            
+            if coord_list == []:
+                print("wrong target")
+                return 0
+            else:
+                return coord_list
 
     def target_dis(self, coord_list):
         """
@@ -373,4 +395,3 @@ class SceneSimulator:
     def close(self):
         """Close the simulator."""
         self.sim.close()
-
