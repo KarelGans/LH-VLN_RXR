@@ -1,0 +1,1130 @@
+2026-02-04 02:03:58,475   INFO  **********************Start logging**********************
+2026-02-04 02:03:58,475   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:03:58,476   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:03:58,476   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:03:58,476   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:03:58,476   INFO  seed             0
+2026-02-04 02:03:58,476   INFO  num_epochs       20
+2026-02-04 02:03:58,476   INFO  batch_size       1
+2026-02-04 02:03:58,476   INFO  lr               3e-05
+2026-02-04 02:03:58,476   INFO  gradient_accumulation_step 2
+2026-02-04 02:03:58,476   INFO  precision        amp_bf16
+2026-02-04 02:03:58,476   INFO  workers          0
+2026-02-04 02:03:58,476   INFO  world_size       1
+2026-02-04 02:03:58,476   INFO  local_rank       0
+2026-02-04 02:03:58,476   INFO  dist_url         env://
+2026-02-04 02:03:58,476   INFO  dist_backend     nccl
+2026-02-04 02:03:58,476   INFO  horovod          False
+2026-02-04 02:03:58,476   INFO  no_set_device_rank False
+2026-02-04 02:03:58,476   INFO  output_dir       LH-VLN/output
+2026-02-04 02:03:58,476   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:03:58,476   INFO  save_latest_states False
+2026-02-04 02:03:58,476   INFO  mode             test
+2026-02-04 02:03:58,476   INFO  ignoreid         -100
+2026-02-04 02:03:58,476   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:03:58,476   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:03:58,476   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:03:58,476   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:03:58,476   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:03:58,476   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:03:58,476   INFO  val_batch        ['/batch_6']
+2026-02-04 02:03:58,476   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:03:58,476   INFO  rank             0
+2026-02-04 02:03:58,476   INFO  distributed      False
+2026-02-04 02:03:58,476   INFO  device           cuda:0
+2026-02-04 02:03:58,476   INFO  split_by_scene   True
+2026-02-04 02:03:58,476   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:03:58,477   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:03:58,477   INFO  tensorboard      False
+2026-02-04 02:03:58,477   INFO  best_checkpoint  None
+2026-02-04 02:03:58,477   INFO  load_checkpoint  False
+2026-02-04 02:03:58,477   INFO  max_step         500
+2026-02-04 02:03:58,477   INFO  num_warmup_steps 1000
+2026-02-04 02:03:58,477   INFO  success_dis      1
+2026-02-04 02:03:58,477   INFO  model_name       LLM Model
+2026-02-04 02:03:58,477   INFO  pretrained_clip  LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:03:58,477   INFO  bert_model       LH-VLN/data/models/bert-large-uncased
+2026-02-04 02:03:58,477   INFO  pretrained_model_name_or_path path to your pretrained LLM(Llama/Qwen base series)
+2026-02-04 02:03:58,477   INFO  resume_from_checkpoint None
+2026-02-04 02:03:58,477   INFO  from_scratch     True
+2026-02-04 02:03:58,477   INFO  feat_dropout     0.4
+2026-02-04 02:03:58,477   INFO  temperature      1.0
+2026-02-04 02:03:58,477   INFO  image_feat_size  1024
+2026-02-04 02:03:58,477   INFO  angle_feat_size  4
+2026-02-04 02:03:58,477   INFO  enc_full_graph   True
+2026-02-04 02:03:58,477   INFO  num_pano_layers  2
+2026-02-04 02:03:58,477   INFO  max_memory       11
+2026-02-04 02:03:58,477   INFO  ----------- Path -----------
+2026-02-04 02:03:58,477   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:03:58,477   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:03:58,477   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:03:58,477   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:03:58,477   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:03:58,477   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:03:58,477   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:03:58,477   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:03:58,477   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:03:58,477   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:03:58,477   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:03:58,477   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:03:58,477   INFO  ----------- Train -----------
+2026-02-04 02:03:58,478   INFO  cfg.Train.mode: test
+2026-02-04 02:03:58,478   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:03:58,478   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:03:58,478   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:03:58,478   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:03:58,478   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:03:58,478   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:03:58,478   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:03:58,478   INFO  cfg.Train.max_step: 500
+2026-02-04 02:03:58,478   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:03:58,478   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:03:58,478   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:03:58,478   INFO  ----------- Model -----------
+2026-02-04 02:03:58,478   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:03:58,478   INFO  cfg.Model.pretrained_clip: LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:03:58,478   INFO  cfg.Model.bert_model: LH-VLN/data/models/bert-large-uncased
+2026-02-04 02:03:58,478   INFO  cfg.Model.pretrained_model_name_or_path: path to your pretrained LLM(Llama/Qwen base series)
+2026-02-04 02:03:58,478   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:03:58,478   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:03:58,478   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:03:58,478   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:03:58,478   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:03:58,478   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:03:58,478   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:03:58,478   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:03:58,478   INFO  cfg.Model.max_memory: 11
+2026-02-04 02:07:20,633   INFO  **********************Start logging**********************
+2026-02-04 02:07:20,633   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:07:20,633   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:07:20,633   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:07:20,633   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:07:20,633   INFO  seed             0
+2026-02-04 02:07:20,633   INFO  num_epochs       20
+2026-02-04 02:07:20,633   INFO  batch_size       1
+2026-02-04 02:07:20,633   INFO  lr               3e-05
+2026-02-04 02:07:20,633   INFO  gradient_accumulation_step 2
+2026-02-04 02:07:20,634   INFO  precision        amp_bf16
+2026-02-04 02:07:20,634   INFO  workers          0
+2026-02-04 02:07:20,634   INFO  world_size       1
+2026-02-04 02:07:20,634   INFO  local_rank       0
+2026-02-04 02:07:20,634   INFO  dist_url         env://
+2026-02-04 02:07:20,634   INFO  dist_backend     nccl
+2026-02-04 02:07:20,634   INFO  horovod          False
+2026-02-04 02:07:20,634   INFO  no_set_device_rank False
+2026-02-04 02:07:20,634   INFO  output_dir       LH-VLN/output
+2026-02-04 02:07:20,634   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:07:20,634   INFO  save_latest_states False
+2026-02-04 02:07:20,634   INFO  mode             test
+2026-02-04 02:07:20,634   INFO  ignoreid         -100
+2026-02-04 02:07:20,634   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:07:20,634   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:07:20,634   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:07:20,634   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:07:20,634   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:07:20,634   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:07:20,634   INFO  val_batch        ['/batch_6']
+2026-02-04 02:07:20,634   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:07:20,634   INFO  rank             0
+2026-02-04 02:07:20,634   INFO  distributed      False
+2026-02-04 02:07:20,635   INFO  device           cuda:0
+2026-02-04 02:07:20,635   INFO  split_by_scene   True
+2026-02-04 02:07:20,635   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:07:20,635   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:07:20,635   INFO  tensorboard      False
+2026-02-04 02:07:20,635   INFO  best_checkpoint  None
+2026-02-04 02:07:20,635   INFO  load_checkpoint  False
+2026-02-04 02:07:20,635   INFO  max_step         500
+2026-02-04 02:07:20,635   INFO  num_warmup_steps 1000
+2026-02-04 02:07:20,635   INFO  success_dis      1
+2026-02-04 02:07:20,635   INFO  model_name       LLM Model
+2026-02-04 02:07:20,635   INFO  pretrained_clip  LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:07:20,635   INFO  bert_model       LH-VLN/data/models/bert-large-uncased
+2026-02-04 02:07:20,635   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:07:20,635   INFO  resume_from_checkpoint None
+2026-02-04 02:07:20,635   INFO  from_scratch     True
+2026-02-04 02:07:20,635   INFO  feat_dropout     0.4
+2026-02-04 02:07:20,635   INFO  temperature      1.0
+2026-02-04 02:07:20,635   INFO  image_feat_size  1024
+2026-02-04 02:07:20,635   INFO  angle_feat_size  4
+2026-02-04 02:07:20,635   INFO  enc_full_graph   True
+2026-02-04 02:07:20,635   INFO  num_pano_layers  2
+2026-02-04 02:07:20,635   INFO  max_memory       11
+2026-02-04 02:07:20,635   INFO  ----------- Path -----------
+2026-02-04 02:07:20,636   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:07:20,636   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:07:20,636   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:07:20,636   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:07:20,636   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:07:20,636   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:07:20,636   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:07:20,636   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:07:20,636   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:07:20,636   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:07:20,636   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:07:20,636   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:07:20,636   INFO  ----------- Train -----------
+2026-02-04 02:07:20,636   INFO  cfg.Train.mode: test
+2026-02-04 02:07:20,636   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:07:20,636   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:07:20,636   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:07:20,636   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:07:20,636   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:07:20,636   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:07:20,636   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:07:20,636   INFO  cfg.Train.max_step: 500
+2026-02-04 02:07:20,636   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:07:20,636   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:07:20,636   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:07:20,636   INFO  ----------- Model -----------
+2026-02-04 02:07:20,636   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:07:20,636   INFO  cfg.Model.pretrained_clip: LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:07:20,636   INFO  cfg.Model.bert_model: LH-VLN/data/models/bert-large-uncased
+2026-02-04 02:07:20,636   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:07:20,636   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:07:20,636   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:07:20,636   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:07:20,636   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:07:20,636   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:07:20,637   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:07:20,637   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:07:20,637   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:07:20,637   INFO  cfg.Model.max_memory: 11
+2026-02-04 02:07:58,406   INFO  **********************Start logging**********************
+2026-02-04 02:07:58,406   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:07:58,406   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:07:58,406   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:07:58,406   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:07:58,406   INFO  seed             0
+2026-02-04 02:07:58,406   INFO  num_epochs       20
+2026-02-04 02:07:58,406   INFO  batch_size       1
+2026-02-04 02:07:58,406   INFO  lr               3e-05
+2026-02-04 02:07:58,406   INFO  gradient_accumulation_step 2
+2026-02-04 02:07:58,406   INFO  precision        amp_bf16
+2026-02-04 02:07:58,406   INFO  workers          0
+2026-02-04 02:07:58,406   INFO  world_size       1
+2026-02-04 02:07:58,406   INFO  local_rank       0
+2026-02-04 02:07:58,406   INFO  dist_url         env://
+2026-02-04 02:07:58,407   INFO  dist_backend     nccl
+2026-02-04 02:07:58,407   INFO  horovod          False
+2026-02-04 02:07:58,407   INFO  no_set_device_rank False
+2026-02-04 02:07:58,407   INFO  output_dir       LH-VLN/output
+2026-02-04 02:07:58,407   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:07:58,407   INFO  save_latest_states False
+2026-02-04 02:07:58,407   INFO  mode             test
+2026-02-04 02:07:58,407   INFO  ignoreid         -100
+2026-02-04 02:07:58,407   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:07:58,407   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:07:58,407   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:07:58,407   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:07:58,407   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:07:58,407   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:07:58,407   INFO  val_batch        ['/batch_6']
+2026-02-04 02:07:58,407   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:07:58,407   INFO  rank             0
+2026-02-04 02:07:58,407   INFO  distributed      False
+2026-02-04 02:07:58,407   INFO  device           cuda:0
+2026-02-04 02:07:58,407   INFO  split_by_scene   True
+2026-02-04 02:07:58,407   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:07:58,407   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:07:58,407   INFO  tensorboard      False
+2026-02-04 02:07:58,407   INFO  best_checkpoint  None
+2026-02-04 02:07:58,407   INFO  load_checkpoint  False
+2026-02-04 02:07:58,407   INFO  max_step         500
+2026-02-04 02:07:58,407   INFO  num_warmup_steps 1000
+2026-02-04 02:07:58,407   INFO  success_dis      1
+2026-02-04 02:07:58,407   INFO  model_name       LLM Model
+2026-02-04 02:07:58,407   INFO  pretrained_clip  LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:07:58,407   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 02:07:58,407   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:07:58,407   INFO  resume_from_checkpoint None
+2026-02-04 02:07:58,407   INFO  from_scratch     True
+2026-02-04 02:07:58,407   INFO  feat_dropout     0.4
+2026-02-04 02:07:58,407   INFO  temperature      1.0
+2026-02-04 02:07:58,408   INFO  image_feat_size  1024
+2026-02-04 02:07:58,408   INFO  angle_feat_size  4
+2026-02-04 02:07:58,408   INFO  enc_full_graph   True
+2026-02-04 02:07:58,408   INFO  num_pano_layers  2
+2026-02-04 02:07:58,408   INFO  max_memory       11
+2026-02-04 02:07:58,408   INFO  ----------- Path -----------
+2026-02-04 02:07:58,408   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:07:58,408   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:07:58,408   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:07:58,408   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:07:58,408   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:07:58,408   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:07:58,408   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:07:58,408   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:07:58,408   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:07:58,408   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:07:58,408   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:07:58,408   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:07:58,408   INFO  ----------- Train -----------
+2026-02-04 02:07:58,408   INFO  cfg.Train.mode: test
+2026-02-04 02:07:58,408   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:07:58,408   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:07:58,408   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:07:58,408   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:07:58,408   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:07:58,408   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:07:58,408   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:07:58,408   INFO  cfg.Train.max_step: 500
+2026-02-04 02:07:58,408   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:07:58,408   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:07:58,408   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:07:58,408   INFO  ----------- Model -----------
+2026-02-04 02:07:58,408   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:07:58,408   INFO  cfg.Model.pretrained_clip: LH-VLN/data/models/clip-vit-base-patch16
+2026-02-04 02:07:58,408   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 02:07:58,409   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:07:58,409   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:07:58,409   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:07:58,409   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:07:58,409   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:07:58,409   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:07:58,409   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:07:58,409   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:07:58,409   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:07:58,409   INFO  cfg.Model.max_memory: 11
+2026-02-04 02:07:58,410   INFO  Initialize the model from config.
+2026-02-04 02:08:52,503   INFO  **********************Start logging**********************
+2026-02-04 02:08:52,503   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:08:52,503   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:08:52,503   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:08:52,503   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:08:52,503   INFO  seed             0
+2026-02-04 02:08:52,503   INFO  num_epochs       20
+2026-02-04 02:08:52,503   INFO  batch_size       1
+2026-02-04 02:08:52,503   INFO  lr               3e-05
+2026-02-04 02:08:52,503   INFO  gradient_accumulation_step 2
+2026-02-04 02:08:52,504   INFO  precision        amp_bf16
+2026-02-04 02:08:52,504   INFO  workers          0
+2026-02-04 02:08:52,504   INFO  world_size       1
+2026-02-04 02:08:52,504   INFO  local_rank       0
+2026-02-04 02:08:52,504   INFO  dist_url         env://
+2026-02-04 02:08:52,504   INFO  dist_backend     nccl
+2026-02-04 02:08:52,504   INFO  horovod          False
+2026-02-04 02:08:52,504   INFO  no_set_device_rank False
+2026-02-04 02:08:52,504   INFO  output_dir       LH-VLN/output
+2026-02-04 02:08:52,504   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:08:52,504   INFO  save_latest_states False
+2026-02-04 02:08:52,504   INFO  mode             test
+2026-02-04 02:08:52,504   INFO  ignoreid         -100
+2026-02-04 02:08:52,504   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:08:52,504   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:08:52,504   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:08:52,504   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:08:52,504   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:08:52,504   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:08:52,504   INFO  val_batch        ['/batch_6']
+2026-02-04 02:08:52,504   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:08:52,504   INFO  rank             0
+2026-02-04 02:08:52,504   INFO  distributed      False
+2026-02-04 02:08:52,504   INFO  device           cuda:0
+2026-02-04 02:08:52,504   INFO  split_by_scene   True
+2026-02-04 02:08:52,504   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:08:52,504   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:08:52,504   INFO  tensorboard      False
+2026-02-04 02:08:52,504   INFO  best_checkpoint  None
+2026-02-04 02:08:52,504   INFO  load_checkpoint  False
+2026-02-04 02:08:52,504   INFO  max_step         500
+2026-02-04 02:08:52,504   INFO  num_warmup_steps 1000
+2026-02-04 02:08:52,504   INFO  success_dis      1
+2026-02-04 02:08:52,504   INFO  model_name       LLM Model
+2026-02-04 02:08:52,504   INFO  pretrained_clip  data/models/clip-vit-base-patch16
+2026-02-04 02:08:52,505   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 02:08:52,505   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:08:52,505   INFO  resume_from_checkpoint None
+2026-02-04 02:08:52,505   INFO  from_scratch     True
+2026-02-04 02:08:52,505   INFO  feat_dropout     0.4
+2026-02-04 02:08:52,505   INFO  temperature      1.0
+2026-02-04 02:08:52,505   INFO  image_feat_size  1024
+2026-02-04 02:08:52,505   INFO  angle_feat_size  4
+2026-02-04 02:08:52,505   INFO  enc_full_graph   True
+2026-02-04 02:08:52,505   INFO  num_pano_layers  2
+2026-02-04 02:08:52,505   INFO  max_memory       11
+2026-02-04 02:08:52,505   INFO  ----------- Path -----------
+2026-02-04 02:08:52,505   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:08:52,505   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:08:52,505   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:08:52,505   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:08:52,505   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:08:52,505   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:08:52,505   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:08:52,505   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:08:52,505   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:08:52,505   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:08:52,505   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:08:52,505   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:08:52,505   INFO  ----------- Train -----------
+2026-02-04 02:08:52,505   INFO  cfg.Train.mode: test
+2026-02-04 02:08:52,505   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:08:52,505   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:08:52,505   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:08:52,505   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:08:52,505   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:08:52,505   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:08:52,505   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:08:52,505   INFO  cfg.Train.max_step: 500
+2026-02-04 02:08:52,505   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:08:52,506   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:08:52,506   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:08:52,506   INFO  ----------- Model -----------
+2026-02-04 02:08:52,506   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:08:52,506   INFO  cfg.Model.pretrained_clip: data/models/clip-vit-base-patch16
+2026-02-04 02:08:52,506   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 02:08:52,506   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:08:52,506   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:08:52,506   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:08:52,506   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:08:52,506   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:08:52,506   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:08:52,506   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:08:52,506   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:08:52,506   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:08:52,506   INFO  cfg.Model.max_memory: 11
+2026-02-04 02:08:52,507   INFO  Initialize the model from config.
+2026-02-04 02:09:23,551   INFO  **********************Start logging**********************
+2026-02-04 02:09:23,551   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:09:23,551   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:09:23,551   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:09:23,551   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:09:23,551   INFO  seed             0
+2026-02-04 02:09:23,551   INFO  num_epochs       20
+2026-02-04 02:09:23,551   INFO  batch_size       1
+2026-02-04 02:09:23,551   INFO  lr               3e-05
+2026-02-04 02:09:23,551   INFO  gradient_accumulation_step 2
+2026-02-04 02:09:23,551   INFO  precision        amp_bf16
+2026-02-04 02:09:23,551   INFO  workers          0
+2026-02-04 02:09:23,552   INFO  world_size       1
+2026-02-04 02:09:23,552   INFO  local_rank       0
+2026-02-04 02:09:23,552   INFO  dist_url         env://
+2026-02-04 02:09:23,552   INFO  dist_backend     nccl
+2026-02-04 02:09:23,552   INFO  horovod          False
+2026-02-04 02:09:23,552   INFO  no_set_device_rank False
+2026-02-04 02:09:23,552   INFO  output_dir       LH-VLN/output
+2026-02-04 02:09:23,552   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:09:23,552   INFO  save_latest_states False
+2026-02-04 02:09:23,552   INFO  mode             test
+2026-02-04 02:09:23,552   INFO  ignoreid         -100
+2026-02-04 02:09:23,552   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:09:23,552   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:09:23,552   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:09:23,552   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:09:23,552   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:09:23,552   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:09:23,552   INFO  val_batch        ['/batch_6']
+2026-02-04 02:09:23,552   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:09:23,552   INFO  rank             0
+2026-02-04 02:09:23,552   INFO  distributed      False
+2026-02-04 02:09:23,552   INFO  device           cuda:0
+2026-02-04 02:09:23,552   INFO  split_by_scene   True
+2026-02-04 02:09:23,552   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:09:23,552   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:09:23,552   INFO  tensorboard      False
+2026-02-04 02:09:23,552   INFO  best_checkpoint  None
+2026-02-04 02:09:23,552   INFO  load_checkpoint  False
+2026-02-04 02:09:23,552   INFO  max_step         500
+2026-02-04 02:09:23,552   INFO  num_warmup_steps 1000
+2026-02-04 02:09:23,552   INFO  success_dis      1
+2026-02-04 02:09:23,552   INFO  model_name       LLM Model
+2026-02-04 02:09:23,552   INFO  pretrained_clip  data/models/clip-vit-base-patch16
+2026-02-04 02:09:23,552   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 02:09:23,552   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:09:23,553   INFO  resume_from_checkpoint None
+2026-02-04 02:09:23,553   INFO  from_scratch     True
+2026-02-04 02:09:23,553   INFO  feat_dropout     0.4
+2026-02-04 02:09:23,553   INFO  temperature      1.0
+2026-02-04 02:09:23,553   INFO  image_feat_size  1024
+2026-02-04 02:09:23,553   INFO  angle_feat_size  4
+2026-02-04 02:09:23,553   INFO  enc_full_graph   True
+2026-02-04 02:09:23,553   INFO  num_pano_layers  2
+2026-02-04 02:09:23,553   INFO  max_memory       12
+2026-02-04 02:09:23,553   INFO  ----------- Path -----------
+2026-02-04 02:09:23,553   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:09:23,553   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:09:23,553   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:09:23,553   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:09:23,553   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:09:23,553   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:09:23,553   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:09:23,553   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:09:23,553   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:09:23,553   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:09:23,553   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:09:23,553   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:09:23,553   INFO  ----------- Train -----------
+2026-02-04 02:09:23,553   INFO  cfg.Train.mode: test
+2026-02-04 02:09:23,553   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:09:23,553   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:09:23,553   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:09:23,553   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:09:23,553   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:09:23,553   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:09:23,553   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:09:23,553   INFO  cfg.Train.max_step: 500
+2026-02-04 02:09:23,553   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:09:23,553   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:09:23,553   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:09:23,553   INFO  ----------- Model -----------
+2026-02-04 02:09:23,554   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:09:23,554   INFO  cfg.Model.pretrained_clip: data/models/clip-vit-base-patch16
+2026-02-04 02:09:23,554   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 02:09:23,554   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:09:23,554   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:09:23,554   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:09:23,554   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:09:23,554   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:09:23,554   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:09:23,554   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:09:23,554   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:09:23,554   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:09:23,554   INFO  cfg.Model.max_memory: 12
+2026-02-04 02:09:23,555   INFO  Initialize the model from config.
+2026-02-04 02:10:36,905   INFO  model type: torch.bfloat16
+2026-02-04 02:10:36,905   INFO  *************** init model *************** 
+2026-02-04 02:13:11,361   INFO  **********************Start logging**********************
+2026-02-04 02:13:11,361   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:13:11,361   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:13:11,361   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:13:11,361   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:13:11,361   INFO  seed             0
+2026-02-04 02:13:11,361   INFO  num_epochs       20
+2026-02-04 02:13:11,361   INFO  batch_size       1
+2026-02-04 02:13:11,361   INFO  lr               3e-05
+2026-02-04 02:13:11,361   INFO  gradient_accumulation_step 2
+2026-02-04 02:13:11,361   INFO  precision        amp_bf16
+2026-02-04 02:13:11,361   INFO  workers          0
+2026-02-04 02:13:11,361   INFO  world_size       1
+2026-02-04 02:13:11,362   INFO  local_rank       0
+2026-02-04 02:13:11,362   INFO  dist_url         env://
+2026-02-04 02:13:11,362   INFO  dist_backend     nccl
+2026-02-04 02:13:11,362   INFO  horovod          False
+2026-02-04 02:13:11,362   INFO  no_set_device_rank False
+2026-02-04 02:13:11,362   INFO  output_dir       LH-VLN/output
+2026-02-04 02:13:11,362   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:13:11,362   INFO  save_latest_states False
+2026-02-04 02:13:11,362   INFO  mode             test
+2026-02-04 02:13:11,362   INFO  ignoreid         -100
+2026-02-04 02:13:11,362   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:13:11,362   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:13:11,362   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:13:11,362   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:13:11,362   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:13:11,362   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:13:11,362   INFO  val_batch        ['/batch_6']
+2026-02-04 02:13:11,362   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:13:11,362   INFO  rank             0
+2026-02-04 02:13:11,362   INFO  distributed      False
+2026-02-04 02:13:11,362   INFO  device           cuda:0
+2026-02-04 02:13:11,362   INFO  split_by_scene   True
+2026-02-04 02:13:11,362   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:13:11,362   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:13:11,362   INFO  tensorboard      False
+2026-02-04 02:13:11,362   INFO  best_checkpoint  None
+2026-02-04 02:13:11,362   INFO  load_checkpoint  False
+2026-02-04 02:13:11,362   INFO  max_step         500
+2026-02-04 02:13:11,362   INFO  num_warmup_steps 1000
+2026-02-04 02:13:11,362   INFO  success_dis      1
+2026-02-04 02:13:11,362   INFO  model_name       LLM Model
+2026-02-04 02:13:11,362   INFO  pretrained_clip  data/models/clip-vit-base-patch16
+2026-02-04 02:13:11,362   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 02:13:11,362   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:13:11,363   INFO  resume_from_checkpoint None
+2026-02-04 02:13:11,363   INFO  from_scratch     True
+2026-02-04 02:13:11,363   INFO  feat_dropout     0.4
+2026-02-04 02:13:11,363   INFO  temperature      1.0
+2026-02-04 02:13:11,363   INFO  image_feat_size  1024
+2026-02-04 02:13:11,363   INFO  angle_feat_size  4
+2026-02-04 02:13:11,363   INFO  enc_full_graph   True
+2026-02-04 02:13:11,363   INFO  num_pano_layers  2
+2026-02-04 02:13:11,363   INFO  max_memory       8
+2026-02-04 02:13:11,363   INFO  ----------- Path -----------
+2026-02-04 02:13:11,363   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:13:11,363   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:13:11,363   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:13:11,363   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:13:11,363   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:13:11,363   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:13:11,363   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:13:11,363   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:13:11,363   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:13:11,363   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:13:11,363   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:13:11,363   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:13:11,363   INFO  ----------- Train -----------
+2026-02-04 02:13:11,363   INFO  cfg.Train.mode: test
+2026-02-04 02:13:11,363   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:13:11,363   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:13:11,363   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:13:11,363   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:13:11,363   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:13:11,363   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:13:11,363   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:13:11,363   INFO  cfg.Train.max_step: 500
+2026-02-04 02:13:11,363   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:13:11,363   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:13:11,364   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:13:11,364   INFO  ----------- Model -----------
+2026-02-04 02:13:11,364   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:13:11,364   INFO  cfg.Model.pretrained_clip: data/models/clip-vit-base-patch16
+2026-02-04 02:13:11,364   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 02:13:11,364   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:13:11,364   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:13:11,364   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:13:11,364   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:13:11,364   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:13:11,364   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:13:11,364   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:13:11,364   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:13:11,364   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:13:11,364   INFO  cfg.Model.max_memory: 8
+2026-02-04 02:13:11,365   INFO  Initialize the model from config.
+2026-02-04 02:14:22,569   INFO  model type: torch.bfloat16
+2026-02-04 02:14:22,569   INFO  *************** init model *************** 
+2026-02-04 02:36:05,370   INFO  **********************Start logging**********************
+2026-02-04 02:36:05,370   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 02:36:05,370   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 02:36:05,370   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 02:36:05,370   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 02:36:05,370   INFO  seed             0
+2026-02-04 02:36:05,370   INFO  num_epochs       20
+2026-02-04 02:36:05,371   INFO  batch_size       1
+2026-02-04 02:36:05,371   INFO  lr               3e-05
+2026-02-04 02:36:05,371   INFO  gradient_accumulation_step 2
+2026-02-04 02:36:05,371   INFO  precision        amp_bf16
+2026-02-04 02:36:05,371   INFO  workers          0
+2026-02-04 02:36:05,371   INFO  world_size       1
+2026-02-04 02:36:05,371   INFO  local_rank       0
+2026-02-04 02:36:05,371   INFO  dist_url         env://
+2026-02-04 02:36:05,371   INFO  dist_backend     nccl
+2026-02-04 02:36:05,371   INFO  horovod          False
+2026-02-04 02:36:05,371   INFO  no_set_device_rank False
+2026-02-04 02:36:05,371   INFO  output_dir       LH-VLN/output
+2026-02-04 02:36:05,371   INFO  save_ckpt_per_epochs 10
+2026-02-04 02:36:05,371   INFO  save_latest_states False
+2026-02-04 02:36:05,371   INFO  mode             test
+2026-02-04 02:36:05,371   INFO  ignoreid         -100
+2026-02-04 02:36:05,371   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 02:36:05,371   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:36:05,371   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 02:36:05,371   INFO  task_data        LH-VLN/data/task
+2026-02-04 02:36:05,371   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 02:36:05,371   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:36:05,371   INFO  val_batch        ['/batch_6']
+2026-02-04 02:36:05,371   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 02:36:05,371   INFO  rank             0
+2026-02-04 02:36:05,371   INFO  distributed      False
+2026-02-04 02:36:05,371   INFO  device           cuda:0
+2026-02-04 02:36:05,371   INFO  split_by_scene   True
+2026-02-04 02:36:05,371   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 02:36:05,371   INFO  tensorboard_path LH-VLN/run
+2026-02-04 02:36:05,371   INFO  tensorboard      False
+2026-02-04 02:36:05,371   INFO  best_checkpoint  None
+2026-02-04 02:36:05,371   INFO  load_checkpoint  False
+2026-02-04 02:36:05,371   INFO  max_step         500
+2026-02-04 02:36:05,371   INFO  num_warmup_steps 1000
+2026-02-04 02:36:05,372   INFO  success_dis      1
+2026-02-04 02:36:05,372   INFO  model_name       LLM Model
+2026-02-04 02:36:05,372   INFO  pretrained_clip  data/models/clip-vit-base-patch16
+2026-02-04 02:36:05,372   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 02:36:05,372   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 02:36:05,372   INFO  resume_from_checkpoint None
+2026-02-04 02:36:05,372   INFO  from_scratch     True
+2026-02-04 02:36:05,372   INFO  feat_dropout     0.4
+2026-02-04 02:36:05,372   INFO  temperature      1.0
+2026-02-04 02:36:05,372   INFO  image_feat_size  1024
+2026-02-04 02:36:05,372   INFO  angle_feat_size  4
+2026-02-04 02:36:05,372   INFO  enc_full_graph   True
+2026-02-04 02:36:05,372   INFO  num_pano_layers  2
+2026-02-04 02:36:05,372   INFO  max_memory       8
+2026-02-04 02:36:05,372   INFO  ----------- Path -----------
+2026-02-04 02:36:05,372   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 02:36:05,372   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 02:36:05,372   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 02:36:05,372   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 02:36:05,372   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 02:36:05,372   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 02:36:05,372   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 02:36:05,372   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 02:36:05,372   INFO  cfg.Path.split_by_scene: True
+2026-02-04 02:36:05,372   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 02:36:05,372   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 02:36:05,372   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 02:36:05,372   INFO  ----------- Train -----------
+2026-02-04 02:36:05,372   INFO  cfg.Train.mode: test
+2026-02-04 02:36:05,372   INFO  cfg.Train.tensorboard: False
+2026-02-04 02:36:05,372   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 02:36:05,372   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 02:36:05,372   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 02:36:05,372   INFO  cfg.Train.batch_size: 1
+2026-02-04 02:36:05,372   INFO  cfg.Train.num_epochs: 20
+2026-02-04 02:36:05,372   INFO  cfg.Train.ignoreid: -100
+2026-02-04 02:36:05,372   INFO  cfg.Train.max_step: 500
+2026-02-04 02:36:05,373   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 02:36:05,373   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 02:36:05,373   INFO  cfg.Train.success_dis: 1
+2026-02-04 02:36:05,373   INFO  ----------- Model -----------
+2026-02-04 02:36:05,373   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 02:36:05,373   INFO  cfg.Model.pretrained_clip: data/models/clip-vit-base-patch16
+2026-02-04 02:36:05,373   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 02:36:05,373   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 02:36:05,373   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 02:36:05,373   INFO  cfg.Model.from_scratch: True
+2026-02-04 02:36:05,373   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 02:36:05,373   INFO  cfg.Model.temperature: 1.0
+2026-02-04 02:36:05,373   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 02:36:05,373   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 02:36:05,373   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 02:36:05,373   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 02:36:05,373   INFO  cfg.Model.max_memory: 8
+2026-02-04 02:36:05,374   INFO  Initialize the model from config.
+2026-02-04 02:37:19,071   INFO  model type: torch.bfloat16
+2026-02-04 02:37:19,071   INFO  *************** init model *************** 
+2026-02-04 21:07:49,978   INFO  **********************Start logging**********************
+2026-02-04 21:07:49,979   INFO  CUDA_VISIBLE_DEVICES=ALL
+2026-02-04 21:07:49,979   INFO  base_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN
+2026-02-04 21:07:49,979   INFO  data_dir         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/data
+2026-02-04 21:07:49,979   INFO  cfg_file         /home/caroluskarel/Karel_Programs/LH VLN/LH-VLN/configs/lh_vln.yaml
+2026-02-04 21:07:49,979   INFO  seed             0
+2026-02-04 21:07:49,979   INFO  num_epochs       20
+2026-02-04 21:07:49,979   INFO  batch_size       1
+2026-02-04 21:07:49,979   INFO  lr               3e-05
+2026-02-04 21:07:49,979   INFO  gradient_accumulation_step 2
+2026-02-04 21:07:49,979   INFO  precision        amp_bf16
+2026-02-04 21:07:49,979   INFO  workers          0
+2026-02-04 21:07:49,979   INFO  world_size       1
+2026-02-04 21:07:49,979   INFO  local_rank       0
+2026-02-04 21:07:49,980   INFO  dist_url         env://
+2026-02-04 21:07:49,980   INFO  dist_backend     nccl
+2026-02-04 21:07:49,980   INFO  horovod          False
+2026-02-04 21:07:49,980   INFO  no_set_device_rank False
+2026-02-04 21:07:49,980   INFO  output_dir       LH-VLN/output
+2026-02-04 21:07:49,980   INFO  save_ckpt_per_epochs 10
+2026-02-04 21:07:49,980   INFO  save_latest_states False
+2026-02-04 21:07:49,980   INFO  mode             test
+2026-02-04 21:07:49,980   INFO  ignoreid         -100
+2026-02-04 21:07:49,980   INFO  scene            LH-VLN/data/hm3d/
+2026-02-04 21:07:49,980   INFO  scene_dataset    LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 21:07:49,980   INFO  episode_data     LH-VLN/data/episode_task
+2026-02-04 21:07:49,980   INFO  task_data        LH-VLN/data/task
+2026-02-04 21:07:49,980   INFO  step_task_data   LH-VLN/data/step_task
+2026-02-04 21:07:49,980   INFO  train_batch      ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 21:07:49,980   INFO  val_batch        ['/batch_6']
+2026-02-04 21:07:49,980   INFO  test_batch       ['/batch_7', '/batch_8']
+2026-02-04 21:07:49,980   INFO  rank             0
+2026-02-04 21:07:49,980   INFO  distributed      False
+2026-02-04 21:07:49,981   INFO  device           cuda:0
+2026-02-04 21:07:49,981   INFO  split_by_scene   True
+2026-02-04 21:07:49,981   INFO  save_checkpoints LH-VLN/save_checkpoints
+2026-02-04 21:07:49,981   INFO  tensorboard_path LH-VLN/run
+2026-02-04 21:07:49,981   INFO  tensorboard      False
+2026-02-04 21:07:49,981   INFO  best_checkpoint  None
+2026-02-04 21:07:49,981   INFO  load_checkpoint  False
+2026-02-04 21:07:49,981   INFO  max_step         500
+2026-02-04 21:07:49,981   INFO  num_warmup_steps 1000
+2026-02-04 21:07:49,981   INFO  success_dis      1
+2026-02-04 21:07:49,981   INFO  model_name       LLM Model
+2026-02-04 21:07:49,981   INFO  pretrained_clip  data/models/clip-vit-base-patch16
+2026-02-04 21:07:49,981   INFO  bert_model       data/models/bert-large-uncased
+2026-02-04 21:07:49,981   INFO  pretrained_model_name_or_path lmsys/vicuna-7b-v1.5
+2026-02-04 21:07:49,981   INFO  resume_from_checkpoint None
+2026-02-04 21:07:49,981   INFO  from_scratch     True
+2026-02-04 21:07:49,981   INFO  feat_dropout     0.4
+2026-02-04 21:07:49,981   INFO  temperature      1.0
+2026-02-04 21:07:49,981   INFO  image_feat_size  1024
+2026-02-04 21:07:49,981   INFO  angle_feat_size  4
+2026-02-04 21:07:49,981   INFO  enc_full_graph   True
+2026-02-04 21:07:49,982   INFO  num_pano_layers  2
+2026-02-04 21:07:49,982   INFO  max_memory       12
+2026-02-04 21:07:49,982   INFO  ----------- Path -----------
+2026-02-04 21:07:49,982   INFO  cfg.Path.scene: LH-VLN/data/hm3d/
+2026-02-04 21:07:49,982   INFO  cfg.Path.scene_dataset: LH-VLN/data/hm3d/hm3d_annotated_basis.scene_dataset_config.json
+2026-02-04 21:07:49,982   INFO  cfg.Path.episode_data: LH-VLN/data/episode_task
+2026-02-04 21:07:49,982   INFO  cfg.Path.task_data: LH-VLN/data/task
+2026-02-04 21:07:49,982   INFO  cfg.Path.step_task_data: LH-VLN/data/step_task
+2026-02-04 21:07:49,982   INFO  cfg.Path.train_batch: ['/batch_1', '/batch_2', '/batch_3', '/batch_4', '/batch_5']
+2026-02-04 21:07:49,982   INFO  cfg.Path.val_batch: ['/batch_6']
+2026-02-04 21:07:49,982   INFO  cfg.Path.test_batch: ['/batch_7', '/batch_8']
+2026-02-04 21:07:49,982   INFO  cfg.Path.split_by_scene: True
+2026-02-04 21:07:49,982   INFO  cfg.Path.save_checkpoints: LH-VLN/save_checkpoints
+2026-02-04 21:07:49,982   INFO  cfg.Path.tensorboard_path: LH-VLN/run
+2026-02-04 21:07:49,982   INFO  cfg.Path.output_dir: LH-VLN/output
+2026-02-04 21:07:49,982   INFO  ----------- Train -----------
+2026-02-04 21:07:49,982   INFO  cfg.Train.mode: test
+2026-02-04 21:07:49,982   INFO  cfg.Train.tensorboard: False
+2026-02-04 21:07:49,982   INFO  cfg.Train.best_checkpoint: None
+2026-02-04 21:07:49,982   INFO  cfg.Train.load_checkpoint: False
+2026-02-04 21:07:49,982   INFO  cfg.Train.save_ckpt_per_epochs: 10
+2026-02-04 21:07:49,983   INFO  cfg.Train.batch_size: 1
+2026-02-04 21:07:49,983   INFO  cfg.Train.num_epochs: 20
+2026-02-04 21:07:49,983   INFO  cfg.Train.ignoreid: -100
+2026-02-04 21:07:49,983   INFO  cfg.Train.max_step: 500
+2026-02-04 21:07:49,983   INFO  cfg.Train.gradient_accumulation_step: 2
+2026-02-04 21:07:49,983   INFO  cfg.Train.num_warmup_steps: 1000
+2026-02-04 21:07:49,983   INFO  cfg.Train.success_dis: 1
+2026-02-04 21:07:49,983   INFO  ----------- Model -----------
+2026-02-04 21:07:49,983   INFO  cfg.Model.model_name: LLM Model
+2026-02-04 21:07:49,983   INFO  cfg.Model.pretrained_clip: data/models/clip-vit-base-patch16
+2026-02-04 21:07:49,983   INFO  cfg.Model.bert_model: data/models/bert-large-uncased
+2026-02-04 21:07:49,983   INFO  cfg.Model.pretrained_model_name_or_path: lmsys/vicuna-7b-v1.5
+2026-02-04 21:07:49,983   INFO  cfg.Model.resume_from_checkpoint: None
+2026-02-04 21:07:49,983   INFO  cfg.Model.from_scratch: True
+2026-02-04 21:07:49,983   INFO  cfg.Model.feat_dropout: 0.4
+2026-02-04 21:07:49,983   INFO  cfg.Model.temperature: 1.0
+2026-02-04 21:07:49,983   INFO  cfg.Model.image_feat_size: 1024
+2026-02-04 21:07:49,983   INFO  cfg.Model.angle_feat_size: 4
+2026-02-04 21:07:49,983   INFO  cfg.Model.enc_full_graph: True
+2026-02-04 21:07:49,983   INFO  cfg.Model.num_pano_layers: 2
+2026-02-04 21:07:49,983   INFO  cfg.Model.max_memory: 12
+2026-02-04 21:07:50,020   INFO  Initialize the model from config.
+2026-02-04 21:09:01,052   INFO  model type: torch.bfloat16
+2026-02-04 21:09:01,053   INFO  *************** init model *************** 
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.embed_tokens.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,588   INFO  layer name lang_model.model.layers.0.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.1.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.2.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,589   INFO  layer name lang_model.model.layers.3.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.4.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.5.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.6.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,590   INFO  layer name lang_model.model.layers.7.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.7.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.8.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.9.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.10.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.10.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.10.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,591   INFO  layer name lang_model.model.layers.10.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.10.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.10.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.10.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.10.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.10.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.11.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.12.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,592   INFO  layer name lang_model.model.layers.13.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.13.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.13.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.14.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.15.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,593   INFO  layer name lang_model.model.layers.16.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.16.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.17.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.18.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.19.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.19.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.19.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,594   INFO  layer name lang_model.model.layers.19.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.19.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.19.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.19.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.19.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.19.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.20.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.21.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.22.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.22.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.22.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,595   INFO  layer name lang_model.model.layers.22.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.22.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.22.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.22.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.22.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.22.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.23.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.24.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.25.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.25.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.25.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,596   INFO  layer name lang_model.model.layers.25.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.25.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.25.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.25.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.25.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.25.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.26.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.27.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.28.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.28.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.28.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.28.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,597   INFO  layer name lang_model.model.layers.28.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.28.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.28.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.28.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.28.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.29.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.30.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.self_attn.q_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.self_attn.k_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.self_attn.v_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.self_attn.o_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.mlp.gate_proj.weight, layer grad True
+2026-02-04 21:09:02,598   INFO  layer name lang_model.model.layers.31.mlp.up_proj.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name lang_model.model.layers.31.mlp.down_proj.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name lang_model.model.layers.31.input_layernorm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name lang_model.model.layers.31.post_attention_layernorm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name lang_model.model.norm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name lang_model.lm_head.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.img_linear.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.img_linear.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.img_layer_norm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.img_layer_norm.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.loc_linear.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.loc_linear.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.loc_layer_norm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.loc_layer_norm.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.nav_type_embedding.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.layer_norm.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.layer_norm.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.self_attn.in_proj_weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.self_attn.in_proj_bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.self_attn.out_proj.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.self_attn.out_proj.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.linear1.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.linear1.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.linear2.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.linear2.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.norm1.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.norm1.bias, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.norm2.weight, layer grad True
+2026-02-04 21:09:02,599   INFO  layer name img_embeddings.pano_encoder.layers.0.norm2.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.self_attn.in_proj_weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.self_attn.in_proj_bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.self_attn.out_proj.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.self_attn.out_proj.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.linear1.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.linear1.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.linear2.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.linear2.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.norm1.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.norm1.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.norm2.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.layers.1.norm2.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.norm.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.pano_encoder.norm.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.mapper.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name img_embeddings.mapper.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name token_type_embeddings.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name gmap_pos_embeddings.0.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name gmap_pos_embeddings.0.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name gmap_pos_embeddings.1.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name gmap_pos_embeddings.1.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name gmap_step_embeddings.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name vp_pos_embeddings.0.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name vp_pos_embeddings.0.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name vp_pos_embeddings.1.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name vp_pos_embeddings.1.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name obj_pos_embeddings.0.weight, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name obj_pos_embeddings.0.bias, layer grad True
+2026-02-04 21:09:02,600   INFO  layer name obj_pos_embeddings.1.weight, layer grad True
+2026-02-04 21:09:02,601   INFO  layer name obj_pos_embeddings.1.bias, layer grad True
+2026-02-04 21:09:02,601   INFO  layer name out_head.0.weight, layer grad True
+2026-02-04 21:09:02,601   INFO  layer name out_head.0.bias, layer grad True
+2026-02-04 21:09:02,602   INFO  model initialized with 6771.54 M trainable parameters
+2026-02-04 21:09:02,602   INFO  Training with a single process
