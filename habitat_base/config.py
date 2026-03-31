@@ -3,7 +3,22 @@ import math
 import magnum as mn
 
 def make_setting(args, scene_file, robot):
-    # test_scene = "102343992"
+
+# ------------------------------------------------------------- pake ini buat rxr
+
+    #GANTI INI BUAT MP3D, jadi ini basically buat search scene soalnya hm3d kebagi scene nya jd val sm train. intinya biar bs ngelacak, kalo mp3d langsung doang
+    # # test_scene = "102343992"
+    # print(f"DEBUG: scene_file is {scene_file}")
+    # split = 'train/'
+    # test_scene = args.scene + split + scene_file #+ '/' + scene_file.split('-')[-1] + '.semantic.glb'
+    # scene_dataset = args.scene_dataset
+
+    # rgb_sensor = True  # @param {type:"boolean"}
+    # depth_sensor = True  # @param {type:"boolean"}
+    # semantic_sensor = True  # @param {type:"boolean"}
+
+# ------------------------------------------------------------- pake ini buat lhvln asli
+
     if int(scene_file[2]) < 8:
         split = 'train/'
     else:
@@ -15,6 +30,7 @@ def make_setting(args, scene_file, robot):
     depth_sensor = True  # @param {type:"boolean"}
     semantic_sensor = True  # @param {type:"boolean"}
 
+# --------------------------------------------------------------------
     if robot == 'spot':
         height = 0.5
     else:

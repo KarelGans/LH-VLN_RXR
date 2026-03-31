@@ -22,9 +22,9 @@ Path:
   # val_batch: [ '/batch_6']
   # test_batch: ['/batch_7', '/batch_8']
 
-  # test_batch: [ '/rxr_test']
-  # train_batch: [ '/rxr_test']
-  # val_batch: [ '/rxr_test']
+  # test_batch: [ '/val_unseen_dataset_rxrlhvln']
+  # train_batch: [ '/train_dataset_rxrlhvln']
+  # val_batch: [ '/val_seen_dataset_rxrlhvln']
 
   split_by_scene: True
 
@@ -40,18 +40,18 @@ Train:
   # best_checkpoint: 'save_checkpoints/epoch_0step_264.pth' #ini kudu diisi kalo mode test
   best_checkpoint: null #ini kudu diisi kalo mode test
   resume_from_step: 0
-  load_checkpoint: False
-  save_ckpt_per_epochs: 10
+  load_checkpoint: True
+  save_ckpt_per_epochs: 1
 
-  batch_size: 4
-  num_epochs: 100
+  batch_size: 1
+  num_epochs: 10
   ignoreid: -100
-  max_step: 150
+  max_step: 400
   gradient_accumulation_step: 2
   num_warmup_steps: 1000
 
   success_dis: 1
-  dataset_type : 'not_rxr' #not rxr and rxr
+  dataset_type : 'not_rxr' #not_rxr and rxr
 
 Model:
   model_name: "LLM Model"

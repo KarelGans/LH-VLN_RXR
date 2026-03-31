@@ -132,6 +132,11 @@ def train_one_epoch(
         # imiation learning for LH task
         agent = HabitatAgent(args, config, nav_model)
         lh_loss, result = agent.train(criterion)
+        if lh_loss == None and result == None:
+            logger.warning(f"Skipping step {step} due to simulator/pathfinding error.")
+        pbar.update() 
+        continue
+
 
         metrics[str(len(result['successes']))].add_sample(
             all(result['successes']),

@@ -278,6 +278,10 @@ class HabitatAgent:
             }
 
             label = self.task_sim.get_next_action(info["target coord"])
+            if label == None :
+                self.task_sim.close()
+                return None,None
+
             label_onehot = torch.from_numpy(label_index[label])
             
             action, output = self.nav_model.step(input["observations"])

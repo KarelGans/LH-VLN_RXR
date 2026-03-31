@@ -365,7 +365,10 @@ class SceneSimulator:
     def get_next_action(self, goal_pos) -> Optional[Union[int, np.ndarray]]:
         """Returns the next action along the shortest path."""
         assert self.follower is not None
-        next_action = self.follower.next_action_along(goal_pos)
+        try :
+            next_action = self.follower.next_action_along(goal_pos)
+        except :
+            return None
         return next_action
     
     def return_state(self):
